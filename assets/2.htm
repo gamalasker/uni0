@@ -675,6 +675,8 @@ function ShowMessage(Feedback){
 	setTimeout("document.getElementById('FeedbackOKButton').focus()", 50);
 	
 //
+//	RefreshImages();
+//
 }
 
 function ShowElements(Show, TagName, ContainerToReverse){
@@ -829,9 +831,29 @@ function Shuffle(InArray){
 function WriteToInstructions(Feedback) {
 	document.getElementById('InstructionsDiv').innerHTML = Feedback;
 
+	RefreshImages();
+
 }
 
 
+
+Imgs = new Array();
+
+function PreloadImages(){
+	var a = PreloadImages.arguments;
+	for (var i=0; i<a.length; i++){
+		Imgs[i] = new Image();
+		Imgs[i].src = a[i];
+	}
+}
+
+function RefreshImages(){
+	for (var i=0; i<document.images.length; i++){
+		if (document.images[i].name.substring(0,6) != 'NavBar'){
+			document.images[i].src = document.images[i].src;
+		}
+	}
+}
 
 
 function EscapeDoubleQuotes(InString){
@@ -1086,6 +1108,8 @@ DragEx.Setup = function(){
 
 
 
+
+	PreloadImages('2.jpg','3.jpg','4.jpg','7.jpg','1.jpg','6.jpg','5.jpg');
 
 
 //Add custom functions to all the cards.
@@ -1534,21 +1558,21 @@ function CheckAnswers(){
 
 <!-- EndSubmissionForm -->
 
-<div id="L_0" class="CardStyle">J&#x2019;aime jouer </div>
-<div id="L_1" class="CardStyle">Nous aimons &#x00E9;couter </div>
-<div id="L_2" class="CardStyle">Elle aime faire </div>
-<div id="L_3" class="CardStyle">Ils aiment jouer &#x00E0; </div>
-<div id="L_4" class="CardStyle">Tu regardes </div>
-<div id="L_5" class="CardStyle">J&#x2019;aime naviguer </div>
-<div id="L_6" class="CardStyle">Il lit </div>
+<div id="L_0" class="CardStyle">J&#x2019;aime jouer au basket.</div>
+<div id="L_1" class="CardStyle">Nous aimons &#x00E9;couter de la musique.</div>
+<div id="L_2" class="CardStyle">Elle aime faire du v&#x00E9;lo.</div>
+<div id="L_3" class="CardStyle">Ils aiment jouer &#x00E0; des jeux vid&#x00E9;o.</div>
+<div id="L_4" class="CardStyle">Tu regardes la t&#x00E9;l&#x00E9;vision ?</div>
+<div id="L_5" class="CardStyle">J&#x2019;aime naviguer sur Internet.</div>
+<div id="L_6" class="CardStyle">Il lit un roman.</div>
 
-<div id="R_0" class="CardStyle">au basket.</div>
-<div id="R_1" class="CardStyle">de la musique.</div>
-<div id="R_2" class="CardStyle">du v&#x00E9;lo.</div>
-<div id="R_3" class="CardStyle">des jeux vid&#x00E9;o.</div>
-<div id="R_4" class="CardStyle">la t&#x00E9;l&#x00E9;vision ?</div>
-<div id="R_5" class="CardStyle">sur Internet.</div>
-<div id="R_6" class="CardStyle">un roman.</div>
+<div id="R_0" class="CardStyle"><img src="2.jpg" alt="2.jpg" title="2" width="100" height="75"/></div>
+<div id="R_1" class="CardStyle"><img src="3.jpg" alt="3.jpg" title="3" width="100" height="75"/></div>
+<div id="R_2" class="CardStyle"><img src="4.jpg" alt="4.jpg" title="4" width="100" height="75"/></div>
+<div id="R_3" class="CardStyle"><img src="7.jpg" alt="7.jpg" title="7" width="100" height="75"/></div>
+<div id="R_4" class="CardStyle"><img src="1.jpg" alt="1.jpg" title="1" width="100" height="75"/></div>
+<div id="R_5" class="CardStyle"><img src="6.jpg" alt="6.jpg" title="6" width="100" height="75"/></div>
+<div id="R_6" class="CardStyle"><img src="5.jpg" alt="5.jpg" title="5" width="100" height="75"/></div>
 
 
 
